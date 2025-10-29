@@ -23,18 +23,13 @@ function Person(firstName, lastName){
   this._firstName = firstName
   this._lastName = lastName
 }
-Object.defineProperty(Person.prototype, "firstName", {
-  get function(){
-    return this._firstName
-  }
-})
-Object.defineProperty(Person.prototype, "lastName", {
-  get function(){
-    return this._lastName
-  }
-})
+
+Person.prototype.getFullName = function(){
+  return `${this._firstName} ${this._lastName}`
+}
+
 Person.prototype.greet = function(){
-  console.log(`Hello, my name is ${this._firstName} ${this._lastName}`)
+  console.log(`Hello, my name is ${this.getFullName()}.`)
 }
 
 
